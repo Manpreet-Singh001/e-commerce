@@ -1,26 +1,17 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+<script setup>
+import AdminSignUp from "./components/Admin/SignUp";
+import AdminLogin from "./components/Admin/AdminLogin";
+import axios from "axios";
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const logout = async () => {
+  const a = axios.create({ withCredentials: true });
+  const res = await a.post("http://127.0.0.1:5000/admin/logout", {});
+  console.log(res.data);
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <AdminSignUp />
+  <AdminLogin />
+  <button @click="logout">logout</button>
+</template>
