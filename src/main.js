@@ -3,9 +3,11 @@ import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import AdminLogin from "./components/Admin/AdminLogin";
 import AdminSignup from "./components/Admin/SignUp";
+import HomePage from "./pages/HomePage";
 
 const routes = [
   { path: "/admin/login", component: AdminLogin },
+  { path: "/", component: HomePage },
   { path: "/admin/signup", component: AdminSignup },
 ];
 
